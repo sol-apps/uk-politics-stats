@@ -56,8 +56,13 @@ page; it reports every pair of overlapping labels, anything painted outside its 
 horizontal page overflow.
 
 ```js
-(function(){var p=[];document.querySelectorAll('svg').forEach(function(s,si){var h=s.getBoundingClientRect();var b=[].slice.call(s.querySelectorAll('text')).map(function(t){var r=t.getBoundingClientRect();return{t:t,x:r.left,y:r.top,w:r.width,h:r.height}}).filter(function(q){return q.w>0});for(var i=0;i<b.length;i++)for(var j=i+1;j<b.length;j++){var A=b[i],C=b[j];var ox=Math.min(A.x+A.w,C.x+C.w)-Math.max(A.x,C.x),oy=Math.min(A.y+A.h,C.y+C.h)-Math.max(A.y,C.y);if(ox>1&&oy>1)p.push({svg:si,kind:'overlap',a:A.t.textContent,b:C.t.textContent})}b.forEach(function(B){var o=[];if(B.x<h.left-1)o.push('left');if(B.x+B.w>h.right+1)o.push('right');if(B.y+B.h>h.bottom+1)o.push('bottom');if(o.length)p.push({svg:si,kind:'clipped',text:B.t.textContent,edge:o.join(',')})})});if(document.documentElement.scrollWidth>window.innerWidth+1)p.push({kind:'page-h-scroll'});return p.length?p:'CLEAN'})()
+(function(){var p=[];document.querySelectorAll('svg').forEach(function(s,si){var h=s.getBoundingClientRect();if(h.width===0){p.push({svg:si,kind:'zero-size'});return;}var b=[].slice.call(s.querySelectorAll('text')).map(function(t){var r=t.getBoundingClientRect();return{t:t,x:r.left,y:r.top,w:r.width,h:r.height}}).filter(function(q){return q.w>0});for(var i=0;i<b.length;i++)for(var j=i+1;j<b.length;j++){var A=b[i],C=b[j];var ox=Math.min(A.x+A.w,C.x+C.w)-Math.max(A.x,C.x),oy=Math.min(A.y+A.h,C.y+C.h)-Math.max(A.y,C.y);if(ox>1&&oy>1)p.push({svg:si,kind:'overlap',a:A.t.textContent,b:C.t.textContent})}b.forEach(function(B){var o=[];if(B.x<h.left-1)o.push('left');if(B.x+B.w>h.right+1)o.push('right');if(B.y+B.h>h.bottom+1)o.push('bottom');if(o.length)p.push({svg:si,kind:'clipped',text:B.t.textContent,edge:o.join(',')})})});if(document.documentElement.scrollWidth>window.innerWidth+1)p.push({kind:'page-h-scroll'});return p.length?p:'CLEAN'})()
 ```
+
+Run it in a **visible** window, or from an iframe of a known width. A hidden or
+background tab reports `window.innerWidth` as 0 and every element as zero-sized,
+which the checker will faithfully report as dozens of clipped labels that are not
+there. The `zero-size` result is the tell.
 
 Every page should return `CLEAN`, at desktop and mobile widths.
 

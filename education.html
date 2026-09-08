@@ -139,23 +139,67 @@ England, better than the OECD.</p>
   </figcaption>
 </figure>
 
-<h2>What actually changed</h2>
+<h2>When did the four nations actually diverge?</h2>
 
-<p>The series divides cleanly at 2012. Before it, the four nations were within about ten points of
-one another in science and maths, and all four tracked the OECD downwards. After it they separate.
-The policy histories separate at roughly the same point: England expanded academies from 2010,
-made the phonics screening check statutory in 2012, introduced the EBacc performance measure and
-reformed GCSEs from 2014. Wales abolished school league tables in 2001 and national tests in 2004,
-and began a full curriculum replacement — the Curriculum for Wales — in 2022, the year of the
-lowest scores in the series before this one.</p>
+<p>Later than the policy did, and earlier than this chart can see.</p>
 
-<p>This page is not going to claim that proves causation. Three-yearly tests of 15-year-olds in
-four jurisdictions cannot separate a curriculum reform from an accountability reform from a
-cohort effect, and everyone quoting PISA at a minister knows it. What the data does establish is
-narrower and firmer: <strong>the England–Wales gap is not explained by how poor Wales is</strong>,
-because it survives holding socio-economic status constant, and it is largest exactly where
-poverty is least relevant. The <a href="money.html">money page</a> tests that against GDP per head
-and child poverty directly.</p>
+<p>Education has never been a single UK system. <strong>Scotland's has been separate since before
+the Union</strong> — the Acts of Union in 1707 preserved distinct Scottish institutions, and it has
+had its own qualifications, curriculum and inspectorate ever since. <strong>Northern Ireland has
+had its own Ministry of Education since June 1921</strong>, at partition, and kept academic
+selection at eleven when England moved to comprehensives. Devolution in 1999 changed who decided
+policy in those two nations, not whether they were separate.</p>
+
+<p><strong>Wales is the real exception, and the one this page is about.</strong> Wales was
+administratively joined to England: the Education Reform Act 1988 created a National Curriculum for
+“England and Wales” as one jurisdiction, with Welsh-language provision layered on top. Devolution
+in 1999 is when Wales acquired the power to diverge, and it used it quickly — school performance
+tables dropped in 2001, national curriculum tests at Key Stages 1 to 3 ended under Rhodri Morgan's
+“clear red water” from 2001–02, the Foundation Phase from 2004, the Welsh Baccalaureate from 2003,
+and no academies or free schools at any point. England went the other way over the same years:
+academies from 2002 and at scale after the Academies Act 2010, the EBacc measure in 2010, the
+phonics screening check in 2012, a new National Curriculum in 2014 and reformed GCSEs from 2015.</p>
+
+<figure>
+  <p class="fig-title">The England–Wales gap, cycle by cycle</p>
+  <p class="fig-sub">England's mean score minus Wales's, in PISA points. England has been the
+  highest-scoring UK nation and Wales the lowest in every subject in every cycle since 2006, so
+  this is also the full spread across the four nations in science.</p>
+  <div id="gapTrend" class="scroller"></div>
+  <figcaption>
+    <b>There is no clean break.</b> The gap widens more or less continuously from the start of the
+    series — science 11 points in 2006, 25 by 2012, 40 in 2025 — rather than hinging on any one
+    reform. Maths is the exception that proves the point: it widened to 2012, closed sharply in
+    2015, and then widened again, which is not what a single decisive policy looks like.
+    <span class="src">Source: as the chart above. Differences of a few points are within sampling
+    error; the 2025 gaps are not.</span>
+  </figcaption>
+</figure>
+
+<p>So the honest answer on timing is that <strong>the policy diverged around 1999–2004 and the
+measurement diverges gradually from 2006 onwards</strong>, which is roughly what a decade-long
+cohort lag would produce. PISA tests fifteen-year-olds: the cohort sitting the 2006 round did its
+primary schooling between about 1995 and 2001, almost entirely under the shared England-and-Wales
+system. The 2012 cohort is the first schooled from start to finish after Wales went its own way.
+That the gap grows across exactly that transition is consistent with a policy effect — and it is
+equally consistent with a dozen other things that changed over twenty years.</p>
+
+<p>Scotland is a separate puzzle rather than a divergence story, since it never shared a system to
+diverge from. Its decline is the steepest in the UK — 39 points in maths since 2006, and the only
+nation to have fallen faster than the OECD in two subjects. Curriculum for Excellence, phased into
+all schools from August 2010, is the usual suspect, and the timing fits in the loose sense that
+the first fully-affected cohorts sat PISA from 2015. It is also vigorously contested, including by
+the OECD's own 2021 review, and this site has nothing to add to that argument.</p>
+
+<div class="finding">
+  <p>What the data cannot do is award causation. Seven three-yearly observations of four
+  jurisdictions cannot separate a curriculum reform from an accountability reform from a change in
+  who is being taught. What it does establish is narrower and firmer:
+  <strong>the England–Wales gap is not explained by how poor Wales is</strong> — it survives
+  holding socio-economic status constant, and it is largest exactly where poverty is least
+  relevant. The <a href="money.html">money page</a> tests that against GDP per head and child
+  poverty directly.</p>
+</div>
 
 <h2>What to distrust in these numbers</h2>
 
@@ -331,6 +375,51 @@ the same round — more than the league-table position. That is what this site d
     host.firstChild.querySelector('svg').setAttribute('aria-label',
       'PISA 2025 scores by socio-economic quartile. England is above Wales at every quartile in ' +
       'every subject, and the gap is widest at the most advantaged quartile.');
+  })();
+
+  /* --- the England-Wales gap, cycle by cycle -------------------------- *
+     One panel per subject rather than three coloured lines in one: on this
+     site colour means nation, and borrowing it to mean subject here would
+     make the reader relearn the palette mid-page. */
+  (function () {
+    var host = document.getElementById('gapTrend');
+    function gap(sub, i) {
+      var y = D.years[i];
+      var e = y === 2025 ? D.exact2025[sub]['England'] : D.pisa[sub]['England'][i];
+      var w = y === 2025 ? D.exact2025[sub]['Wales'] : D.pisa[sub]['Wales'][i];
+      return e - w;
+    }
+    var last = null;
+    function draw() {
+      var cols = window.innerWidth < 700 ? 1 : 3;
+      if (cols === last) return;
+      last = cols;
+      host.innerHTML = '';
+      var svgEl = Chart.indexPanels({
+        cols: cols, panelW: cols === 1 ? 236 : 176, panelH: 150,
+        mR: 16, gapX: 42, mL: 34,
+        xTicks: [2006, 2012, 2018, 2025],
+        yDomain: [0, 46],
+        panels: SUBJECTS.map(function (sub) {
+          return {
+            title: sub[1],
+            series: [{
+              name: '', colour: 'var(--ink)',
+              values: D.years.map(function (y, i) { return { x: y, y: gap(sub[0], i) }; })
+            }]
+          };
+        })
+      });
+      /* indexPanels rules off at 100, which means nothing on a scale of point
+         differences. Zero is the line that matters here. */
+      svgEl.querySelectorAll('.rule-faint').forEach(function (n) { n.remove(); });
+      svgEl.setAttribute('aria-label',
+        'The gap between England and Wales in PISA points, 2006 to 2025, by subject. It widens ' +
+        'more or less continuously in science and reading, and unevenly in maths.');
+      host.appendChild(svgEl);
+    }
+    draw();
+    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(draw, 150); });
   })();
 
   /* --- socio-economic gap by nation ---------------------------------- */
