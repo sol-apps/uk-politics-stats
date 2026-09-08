@@ -37,8 +37,8 @@ in the series.</p>
 <figure>
   <p class="fig-title">PISA mean scores, four UK nations</p>
   <p class="fig-sub">15-year-olds. Each subject sits on the same vertical scale, so the panels can
-  be read against one another. The dotted line is 500 — the OECD mean at the point each subject's
-  scale was first set.</p>
+  be read against one another. The grey dashed line is the OECD trend average; it begins at 2012
+  because that is as far back as the OECD publishes it on a consistent basket of countries.</p>
   <div id="trend" class="scroller"></div>
   <figcaption>
     Every UK nation is a separately sampled “education system” in PISA, so these are four real
@@ -46,6 +46,14 @@ in the series.</p>
     fallen since 2006</b>: reading is a point higher, science is level, maths is three points
     lower. Over the same nineteen years Scotland is down 24 points in science and 39 in maths,
     Northern Ireland down 16 and 21, and Wales down 29 and 28.
+    <br><br>
+    The OECD line changes how those falls should be read. <b>Since 2012 the OECD trend average has
+    itself dropped 15 points in science, 26 in maths and 31 in reading</b> — so most of what looks
+    like national decline is an international tide. Measured against it, England is the outlier
+    that resisted, gaining 15 to 28 points on the OECD in the three subjects. Wales fell in
+    absolute terms but roughly held its position relative to the OECD, and actually gained on it in
+    maths and reading. <b>Scotland is the only UK nation to have fallen faster than the OECD</b>,
+    in science and maths.
     <span class="src">Source: OECD PISA 2025 database, via the national reports for England
     (DfE/OUCEA) and Northern Ireland (DE), 8 September 2026; earlier cycles from the PISA 2022
     national report for Wales and the PISA 2012 national report for England.</span>
@@ -197,7 +205,16 @@ the same round — more than the league-table position. That is what this site d
             name: n,
             values: D.pisa[s[0]][n].map(function (v, i) { return { x: D.years[i], y: v }; })
           };
-        })
+        }).concat([{
+          /* The OECD trend average — a fixed basket of countries, so it can be
+             read as a trend. It starts at 2012 because that is as far back as
+             it is published on a consistent basis; before then the OECD
+             average covers a different set of countries each cycle and a line
+             through it would be four unrelated numbers joined up. */
+          name: 'OECD trend average', dashed: true,
+          values: Object.keys(D.oecdTrend[s[0]]).map(Number).sort()
+            .map(function (y) { return { x: y, y: D.oecdTrend[s[0]][String(y)] }; })
+        }])
       };
     });
   }
@@ -220,7 +237,6 @@ the same round — more than the league-table position. That is what this site d
         return (t === D.years[0] || t === D.years[D.years.length - 1])
           ? t : '’' + String(t).slice(2);
       },
-      baseline: 500,
       yDomain: [448, 524]
     }));
     trendHost.querySelector('svg').setAttribute('aria-label',
