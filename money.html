@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money &amp; results — UK Politics Stats</title>
+<meta name="description" content="Testing PISA results against GDP per head, child poverty and inequality across the four UK nations. The correlation that looks strong turns out not to survive a second look.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="./">UK Politics Stats</a>
+  <nav>
+    <a href="education.html">education</a>
+    <a href="money.html" aria-current="page">money &amp; results</a>
+    <a href="regions.html">england by region</a>
+    <a href="sources.html">sources</a>
+  </nav>
+</header>
+
+<p class="dateline">PISA 2025 · ONS regional GDP to 2023 · DWP poverty to FYE 2025</p>
+<h1>Does money explain the gaps?</h1>
+
+<p class="standfirst">This page exists because the correlation looked convincing and turned out not
+to be. With four nations you can find a correlation of 0.93 with almost anything. What follows is
+the test, then the second test that breaks it.</p>
+
+<h2>The correlation that looks convincing</h2>
+
+<p>Rank the four nations by GDP per head and you get England, Scotland, Northern Ireland, Wales.
+Rank them by PISA score and you get England, Northern Ireland, Scotland, Wales. One swap. The
+correlation is <strong>+0.93</strong>.</p>
+
+<figure>
+  <p class="fig-title">GDP per head against PISA score, four nations</p>
+  <p class="fig-sub">Real GDP per head in 2022 money, 2023 — the most recent year published.
+  PISA is the mean of the three subject scores in 2025.</p>
+  <div id="gdpScatter"></div>
+  <figcaption>
+    A correlation of +0.93 across four points. It is also, on its own, worth very little:
+    <b>four observations produce a coefficient this large by chance often enough that no serious
+    conclusion can rest on it</b>, and the two middle nations already break the pattern —
+    Northern Ireland is £3,900 per head poorer than Scotland and scores level with it.
+    <span class="src">Sources: ONS, <i>Regional GDP by all ITL regions</i>, Table 11 (chained
+    volume measures per head, 2022 money), edition 1998–2023; OECD PISA 2025.</span>
+  </figcaption>
+</figure>
+
+<h2>The test that breaks it</h2>
+
+<p>A cross-sectional correlation between rich places and good schools tells you nothing about
+whether money causes results, because rich places differ from poor places in a hundred other ways.
+The usable test is <em>change</em>: when a nation gets richer, do its results improve?</p>
+
+<p>Between 2012 and 2023 all four nations got materially richer per head — between 10% and 14% in
+real terms. Over the same period three of the four fell in PISA and the fourth was flat.</p>
+
+<figure>
+  <p class="fig-title">Real GDP per head and PISA score, both indexed to 2006 = 100</p>
+  <p class="fig-sub">Same panel, same baseline, so the two lines can be compared directly. GDP runs
+  annually to 2023; PISA is measured every three years.</p>
+  <div id="indexed" class="scroller"></div>
+  <figcaption>
+    <b>The lines do not move together in any nation.</b> Wales's economy is 11% larger per head
+    than in 2012 and its PISA mean is 16 points lower. Scotland's is 10% larger and its mean is 24
+    points lower. Within a nation over time, the correlation between GDP per head and PISA score is
+    <em>negative</em> in nine of the twelve nation-and-subject combinations.
+    <span class="src">Sources: ONS Regional GDP Table 11; OECD PISA 2006–2025. GDP is shown to
+    2023, the latest published year; the 2025 PISA point is plotted against 2023 GDP.</span>
+  </figcaption>
+</figure>
+
+<div class="finding">
+  <p>Pool all four nations and all seven PISA cycles — twenty-eight observations rather than four —
+  and the correlation between GDP per head and PISA score falls to <strong>+0.48</strong>, an
+  R² of 0.23. The strong relationship was an artefact of having only four points.</p>
+</div>
+
+<h2>Poverty</h2>
+
+<p>GDP per head is a poor measure of whether children are poor. It counts output where it is
+produced, not income where people live, which is why London's figure is inflated by commuters. The
+direct measure is the share of children in relative low income after housing costs.</p>
+
+<figure>
+  <p class="fig-title">Child poverty against PISA score, four nations</p>
+  <p class="fig-sub">Children in relative low income after housing costs, three-year average to
+  the financial year ending 2025.</p>
+  <div id="povScatter"></div>
+  <figcaption>
+    <b>Correlation: −0.19. Effectively nothing.</b> Scotland and Northern Ireland have much lower
+    child poverty than England and score 19 points below it. Wales and England are three
+    percentage points apart on child poverty and 38 points apart on PISA.
+    <span class="src">Sources: Welsh Government, <i>Relative income poverty: April 2023 to March
+    2025</i> (DWP Households Below Average Income; sub-UK estimates are Official Statistics in
+    Development); OECD PISA 2025.</span>
+  </figcaption>
+</figure>
+
+<p>The arithmetic is worth doing explicitly, because it is the whole argument. England's child
+poverty rate is 29%; Wales's is 32%. If poverty were the mechanism, moving three per cent of Welsh
+children across the poverty line would have to be worth 38 PISA points. It is not close.
+Within England, the entire distance from the most disadvantaged quarter of pupils to the most
+advantaged — the full sweep of the income distribution — is 81 points in science. A three-point
+shift in the share below one threshold is worth a couple of points at most.</p>
+
+<h2>Inequality</h2>
+
+<p>The third candidate is inequality rather than poverty: perhaps Wales's problem is that
+background matters more there. The opposite is true, and it is measured in the same test.</p>
+
+<figure>
+  <p class="fig-title">How much socio-economic background determines results</p>
+  <p class="fig-sub">Score points between the top and bottom socio-economic quartile within each
+  nation, PISA 2025. A shorter bar means background matters less.</p>
+  <div id="gapChart"></div>
+  <figcaption>
+    Wales has the flattest gradient of the four nations in science and maths and the second
+    flattest in reading — flatter than the OECD average in every subject. <b>On the standard
+    measure of educational inequality, Wales is the most equal nation in the UK and the
+    lowest-scoring one.</b> Inequality cannot be the explanation for a gap that persists when
+    inequality is lower.
+    <span class="src">Source: OECD PISA 2025, Tables B1.3, C1.3, D1.3. Note that household income
+    inequality is not reliably published below UK level, so this uses PISA's own measure of the
+    socio-economic gradient — which is in any case the quantity the argument is about.</span>
+  </figcaption>
+</figure>
+
+<h2>So what is left</h2>
+
+<p>Three economic explanations were available and none survives contact with the data. GDP per
+head correlates across nations and not over time. Child poverty does not correlate at all. Wales
+is more equal than England, not less. And, from the <a href="education.html">education page</a>,
+the England–Wales gap holds at every point on the socio-economic distribution and is <em>largest
+among the most advantaged pupils</em> — the ones whose results are least constrained by money.</p>
+
+<p>That is a negative result, and negative results are worth stating plainly: <strong>the
+England–Wales gap in PISA is not an economic phenomenon.</strong> Whatever is producing it is
+acting on pupils whose family circumstances are already comfortable, which points at what happens
+in schools rather than at what happens to household budgets.</p>
+
+<p>This site is not going to take the next step and name the policy. Seven three-yearly
+observations of four jurisdictions cannot separate a curriculum change from an accountability
+change from a teacher-supply change, and any chart that claims otherwise is doing rhetoric. What
+the data supports is the elimination, not the identification. The <a href="regions.html">regional
+page</a> pushes on the same question from the other side — nine regions under one education
+policy, with very different economies.</p>
+
+<h2>GDP per head, tracked</h2>
+
+<p>Since the economic explanation does not do the work, the series is here on its own terms rather
+than as a cause of anything.</p>
+
+<figure>
+  <p class="fig-title">Real GDP per head, UK nations and English regions</p>
+  <p class="fig-sub">Chained volume measures in 2022 money, 1998–2023. Both panels share one
+  vertical scale — which is why the four nations sit in a band at the bottom. That compression is
+  the finding, not a drafting error: London is 2.4 times the North East per head.</p>
+  <div id="gdpTrend" class="scroller"></div>
+  <figcaption>
+    <b>Wales has been the poorest of the four nations for the whole series</b> — but it is not
+    the poorest part of the UK. The North East of England was £652 per head below Wales in 2023
+    and has been below it in every year since 2011. Their school results are nothing like each
+    other, which is the point the <a href="regions.html">regional page</a> takes up.
+    <span class="src">Source: ONS, <i>Regional GDP by all ITL regions</i>, Table 11, edition
+    1998–2023 (released April 2025). GDP per head is measured where output is produced, not where
+    people live, so commuting inflates London and depresses its neighbours.</span>
+  </figcaption>
+</figure>
+
+<footer>
+  <p><a href="./">← all topics</a> · <a href="sources.html">sources and methods</a></p>
+</footer>
+
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/charts.js"></script>
+<script>
+(function () {
+  var D = window.UKD;
+  var NATIONS = ['England', 'Scotland', 'Northern Ireland', 'Wales'];
+  var SUBJECTS = ['science', 'reading', 'maths'];
+
+  function meanPisa(nation, cycleIndex) {
+    return SUBJECTS.reduce(function (a, s) { return a + D.pisa[s][nation][cycleIndex]; }, 0) / 3;
+  }
+  /* GDP is published to 2023; the 2025 PISA cycle is paired with it rather
+     than left out, and the caption says so. */
+  var GDP_FOR_CYCLE = { 2006: '2006', 2009: '2009', 2012: '2012', 2015: '2015', 2018: '2018', 2022: '2022', 2025: '2023' };
+
+  /* --- 1. the tempting cross-section ---------------------------------- */
+  Chart.mount('gdpScatter', Chart.scatter({
+    points: NATIONS.map(function (n) {
+      return {
+        x: D.gdpPerHead[n]['2023'], y: meanPisa(n, 6),
+        label: n === 'Northern Ireland' ? 'N. Ireland' : n,
+        colour: Chart.colourOf(n),
+      };
+    }),
+    fit: 'all', width: 560, height: 320,
+    xFmt: function (t) { return '£' + (t / 1000).toFixed(0) + 'k'; },
+    xLabel: 'real GDP per head, 2023 (2022 money)',
+    yLabel: 'mean PISA score, 2025',
+    fitNote: 'r = +0.93  ·  n = 4'
+  }), 'GDP per head against PISA score for the four UK nations, showing a strong but ' +
+      'four-point correlation.');
+
+  /* --- 2. indexed change over time ------------------------------------ */
+  var idxHost = document.getElementById('indexed');
+  var lastCols = null;
+  function drawIndexed() {
+    var cols = window.innerWidth < 700 ? 1 : 2;
+    if (cols === lastCols) return;
+    lastCols = cols;
+    idxHost.innerHTML = '';
+    idxHost.appendChild(Chart.indexPanels({
+      cols: cols,
+      panelW: cols === 1 ? 240 : 210,
+      xTicks: [2006, 2012, 2018, 2023],
+      panels: NATIONS.map(function (n) {
+        var gdpBase = D.gdpPerHead[n]['2006'];
+        var pisaBase = meanPisa(n, 0);
+        var gdpYears = Object.keys(D.gdpPerHead[n])
+          .map(Number).filter(function (y) { return y >= 2006; }).sort();
+        return {
+          title: n === 'Northern Ireland' ? 'N. Ireland' : n,
+          series: [
+            {
+              name: 'GDP', colour: 'var(--ink-faint)',
+              values: gdpYears.map(function (y) {
+                return { x: y, y: D.gdpPerHead[n][String(y)] / gdpBase * 100 };
+              })
+            },
+            {
+              name: 'PISA', colour: Chart.colourOf(n),
+              values: D.years.map(function (y, i) {
+                return { x: Number(GDP_FOR_CYCLE[y]), y: meanPisa(n, i) / pisaBase * 100 };
+              })
+            }
+          ]
+        };
+      })
+    }));
+    idxHost.querySelector('svg').setAttribute('aria-label',
+      'Real GDP per head and PISA score indexed to 2006 for each UK nation. GDP rises in every ' +
+      'nation while PISA falls in three of the four.');
+  }
+  drawIndexed();
+  var t1; window.addEventListener('resize', function () { clearTimeout(t1); t1 = setTimeout(drawIndexed, 150); });
+
+  /* --- 3. poverty ------------------------------------------------------ */
+  Chart.mount('povScatter', Chart.scatter({
+    points: NATIONS.map(function (n) {
+      return {
+        x: D.childPovertyAHC[n], y: meanPisa(n, 6),
+        label: n === 'Northern Ireland' ? 'N. Ireland' : n,
+        colour: Chart.colourOf(n),
+      };
+    }),
+    fit: 'all', width: 560, height: 320,
+    xFmt: function (t) { return t + '%'; },
+    xLabel: 'children in relative low income after housing costs',
+    yLabel: 'mean PISA score, 2025',
+    fitNote: 'r = −0.19  ·  n = 4'
+  }), 'Child poverty against PISA score for the four UK nations, showing essentially no ' +
+      'relationship.');
+
+  /* --- 4. the socio-economic gradient ---------------------------------- */
+  Chart.mount('gapChart', Chart.rowChart({
+    panels: [['science', 'Science'], ['reading', 'Reading'], ['maths', 'Mathematics']].map(function (s) {
+      return {
+        title: s[1],
+        rows: NATIONS.concat(['OECD average']).map(function (n) {
+          var q = D.escs[s[0]][n];
+          return { name: n, value: Math.round(q[0] - q[3]) };
+        })
+      };
+    }),
+    xDomain: [40, 100],
+    panelW: 150, gapX: 34, labelW: 92, rowH: 26,
+    xLabel: 'score points, top minus bottom socio-economic quartile'
+  }), 'Socio-economic attainment gap by nation, PISA 2025. Wales has the narrowest gap in ' +
+      'science and maths.');
+
+  /* --- 5. GDP per head on its own terms -------------------------------- */
+  (function () {
+    var host = document.getElementById('gdpTrend');
+    var years = Object.keys(D.gdpPerHead['United Kingdom']).map(Number).sort();
+    function line(name, colour) {
+      return {
+        name: name === 'Northern Ireland' ? 'N. Ireland'
+            : name === 'Yorkshire and The Humber' ? 'Yorkshire'
+            : name === 'East' ? 'East of England' : name,
+        colour: colour,
+        values: years.map(function (y) { return { x: y, y: D.gdpPerHead[name][String(y)] }; })
+      };
+    }
+    var svgEl = Chart.indexPanels({
+      cols: 2, panelW: 236, panelH: 268, mR: 96, gapX: 84,
+      xTicks: [1998, 2006, 2014, 2023],
+      yDomain: [22000, 68000],
+      yFmt: function (t) { return '£' + (t / 1000) + 'k'; },
+      panels: [
+        {
+          title: 'UK nations',
+          series: [line('England', 'var(--eng)'), line('Scotland', 'var(--sco)'),
+                   line('Northern Ireland', 'var(--nir)'), line('Wales', 'var(--wal)')]
+        },
+        {
+          title: 'Selected English regions',
+          series: [line('London', 'var(--ink)'), line('South East', 'var(--ink-soft)'),
+                   line('West Midlands', 'var(--ink-faint)'), line('North East', 'var(--wal)')]
+        }
+      ]
+    });
+    /* indexPanels draws a reference rule at 100, which is meaningless on a
+       pounds axis — remove it rather than leave a line with no referent. */
+    svgEl.querySelectorAll('.rule-faint').forEach(function (n) { n.remove(); });
+    svgEl.setAttribute('aria-label',
+      'Real GDP per head 1998 to 2023. Wales is the lowest of the four nations throughout; the ' +
+      'North East of England is lower still from 2019.');
+    host.appendChild(svgEl);
+  })();
+})();
+</script>
+</body>
+</html>

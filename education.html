@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Education — UK Politics Stats</title>
+<meta name="description" content="Every PISA result for England, Scotland, Wales and Northern Ireland from 2006 to 2025, with the socio-economic breakdown that explains what the headline scores do not.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="./">UK Politics Stats</a>
+  <nav>
+    <a href="education.html" aria-current="page">education</a>
+    <a href="money.html">money &amp; results</a>
+    <a href="regions.html">england by region</a>
+    <a href="sources.html">sources</a>
+  </nav>
+</header>
+
+<p class="dateline">PISA 2025 · published 8 September 2026</p>
+<h1>Twenty years of PISA, four nations</h1>
+
+<p class="standfirst">England has just posted its best science score since 2012. Wales has just
+posted its worst result in every subject since it started taking the test. The two things happened
+under the same economy, three years apart, and the gap between them is now wider than at any point
+in the series.</p>
+
+<h2>Every result, 2006 to 2025</h2>
+
+<figure>
+  <p class="fig-title">PISA mean scores, four UK nations</p>
+  <p class="fig-sub">15-year-olds. Each subject sits on the same vertical scale, so the panels can
+  be read against one another. The dotted line is 500 — the OECD mean at the point each subject's
+  scale was first set.</p>
+  <div id="trend" class="scroller"></div>
+  <figcaption>
+    Every UK nation is a separately sampled “education system” in PISA, so these are four real
+    measurements, not a UK figure split four ways. <b>England is the only nation that has not
+    fallen since 2006</b>: reading is a point higher, science is level, maths is three points
+    lower. Over the same nineteen years Scotland is down 24 points in science and 39 in maths,
+    Northern Ireland down 16 and 21, and Wales down 29 and 28.
+    <span class="src">Source: OECD PISA 2025 database, via the national reports for England
+    (DfE/OUCEA) and Northern Ireland (DE), 8 September 2026; earlier cycles from the PISA 2022
+    national report for Wales and the PISA 2012 national report for England.</span>
+  </figcaption>
+</figure>
+
+<h2>Where the four nations stand now</h2>
+
+<figure>
+  <p class="fig-title">PISA 2025 mean scores against the OECD average</p>
+  <p class="fig-sub">Distance from the OECD average, which is the vertical rule in each panel. One row per nation, so nations that finish a point apart still get their own line.</p>
+  <div id="standings"></div>
+  <figcaption>
+    England is above the OECD average in all three subjects, by 34 points in science. Wales is
+    below it in science and maths, and level with it in reading. <b>Northern Ireland and Scotland
+    have swapped places.</b> In 2006 Northern Ireland was 7 points behind Scotland in science and
+    12 behind in maths; it is now 2 and 6 ahead. Scotland keeps a 6-point lead in reading, and the
+    two are level overall.
+    <span class="src">Source: OECD PISA 2025, Table B1.1 / C1.1 / D1.1, appendix data tables to
+    the national reports, September 2026.</span>
+  </figcaption>
+</figure>
+
+<div class="scroller">
+<table>
+  <caption>PISA 2025, mean score (change since 2022 in brackets)</caption>
+  <thead>
+    <tr><th>Education system</th><th>Science</th><th>Reading</th><th>Maths</th></tr>
+  </thead>
+  <tbody id="tbl2025"></tbody>
+</table>
+</div>
+
+<h2>The question this data is usually asked to settle</h2>
+
+<p>Wales is poorer than England, so it is tempting to read the Welsh result as a poverty result —
+the same schools doing the same job with a harder intake. The PISA data can test that directly,
+because every pupil is scored on the OECD's index of economic, social and cultural status
+(<abbr title="Economic, Social and Cultural Status">ESCS</abbr>) and the results are published by
+quartile of that index.</p>
+
+<p>If Wales's problem were the <em>composition</em> of its intake — more poor children, same
+schooling — then Welsh pupils at any given point on the socio-economic scale would score about the
+same as English pupils at that point, and only the national average would differ. That is a
+falsifiable claim, and the data falsifies it.</p>
+
+<figure>
+  <p class="fig-title">PISA 2025 score by socio-economic quartile</p>
+  <p class="fig-sub">Q1 is the most disadvantaged quarter of pupils in each nation; Q4 the most
+  advantaged. If composition were the whole story, the lines would sit on top of one another.</p>
+  <div id="escs" class="scroller"></div>
+  <figcaption>
+    <b>England out-scores Wales at every point on the socio-economic distribution — and by more at
+    the top than at the bottom.</b> In science the gap is 35 points among the most disadvantaged
+    quarter and 51 points among the most advantaged. England's <em>third</em> quartile out-scores
+    Wales's <em>top</em> quartile in all three subjects.
+    <span class="src">Source: OECD PISA 2025, Table B1.3 / C1.3 / D1.3.</span>
+  </figcaption>
+</figure>
+
+<div class="finding">
+  <p>A composition effect cannot produce a gap that widens as you move up the income scale. Whatever
+  separates England from Wales is doing most of its work among the pupils least likely to be held
+  back by poverty.</p>
+</div>
+
+<h2>Wales has the narrowest gap in the UK. That is not the good news it sounds like</h2>
+
+<p>The distance between a nation's most and least advantaged pupils is the standard measure of how
+much economic background determines results. On that measure Wales does well — better than
+England, better than the OECD.</p>
+
+<figure>
+  <p class="fig-title">Socio-economic attainment gap, PISA 2025 (Q4 minus Q1, score points)</p>
+  <div id="gap"></div>
+  <figcaption>
+    Wales has the flattest socio-economic gradient of the four nations in science and maths, and
+    Scotland the flattest in reading. But a narrow gap can be achieved from either end.
+    <b>Wales's gap is narrow because its advantaged pupils score low, not because its disadvantaged
+    pupils score high</b> — Welsh pupils in the bottom quartile score 448 in science against
+    England's 483.
+    <span class="src">Source: OECD PISA 2025, Table B1.3 / C1.3 / D1.3.</span>
+  </figcaption>
+</figure>
+
+<h2>What actually changed</h2>
+
+<p>The series divides cleanly at 2012. Before it, the four nations were within about ten points of
+one another in science and maths, and all four tracked the OECD downwards. After it they separate.
+The policy histories separate at roughly the same point: England expanded academies from 2010,
+made the phonics screening check statutory in 2012, introduced the EBacc performance measure and
+reformed GCSEs from 2014. Wales abolished school league tables in 2001 and national tests in 2004,
+and began a full curriculum replacement — the Curriculum for Wales — in 2022, the year of the
+lowest scores in the series before this one.</p>
+
+<p>This page is not going to claim that proves causation. Three-yearly tests of 15-year-olds in
+four jurisdictions cannot separate a curriculum reform from an accountability reform from a
+cohort effect, and everyone quoting PISA at a minister knows it. What the data does establish is
+narrower and firmer: <strong>the England–Wales gap is not explained by how poor Wales is</strong>,
+because it survives holding socio-economic status constant, and it is largest exactly where
+poverty is least relevant. The <a href="money.html">money page</a> tests that against GDP per head
+and child poverty directly.</p>
+
+<h2>What to distrust in these numbers</h2>
+
+<p class="caveat">
+<b>The UK's exclusion rate is above the OECD's limit and rising.</b> 7.6% of sampled schools were
+excluded in 2025, against a 5% target — up from 4.9% in 2022 and 5.4% in 2018. The OECD accepted
+the results for trend comparison; the direction of that drift still flatters the UK, because
+excluded schools are not a random sample.<br><br>
+<b>England's 2025 participation met the standard; 2022's did not, across much of the UK.</b>
+England reached a 90% weighted school response rate in 2025 (target 85%) after replacement schools
+were brought in, and 83% of pupils (target 80%). The 2022 round is flagged in the official reports
+as failing one or more sampling standards, which matters because 2022 is the comparison point for
+England's 13-point science rise.<br><br>
+<b>Independent work has found England's PISA sample skews high.</b> Analysis of the 2018 data by
+John Jerrim found England's maths mean was roughly 11 points above what a properly representative
+sample would have given, because participating pupils had higher prior attainment and lower free
+school meal eligibility than the population.<br><br>
+<b>2025's cohort sat primary school through the pandemic.</b> These pupils were 10 or 11 when
+schools closed. That is true in every country, which is what makes the international comparison
+still worth something, but it is not true to the same degree everywhere.
+</p>
+
+<p>None of this is a reason to ignore PISA. It is a reason to trust the <em>within-country
+comparisons</em> — England against Wales, quartile against quartile, both measured the same way in
+the same round — more than the league-table position. That is what this site does with it.</p>
+
+<footer>
+  <p><a href="./">← all topics</a> · <a href="sources.html">sources and methods</a></p>
+</footer>
+
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/charts.js"></script>
+<script>
+(function () {
+  var D = window.UKD;
+  var NATIONS = ['England', 'Scotland', 'Northern Ireland', 'Wales'];
+  var SUBJECTS = [['science', 'Science'], ['reading', 'Reading'], ['maths', 'Mathematics']];
+
+  function trendPanels() {
+    return SUBJECTS.map(function (s) {
+      return {
+        title: s[1],
+        series: NATIONS.map(function (n) {
+          return {
+            name: n,
+            values: D.pisa[s[0]][n].map(function (v, i) { return { x: D.years[i], y: v }; })
+          };
+        })
+      };
+    });
+  }
+
+  var trendHost = document.getElementById('trend');
+  var lastCols = null;
+
+  function drawTrend() {
+    var cols = window.innerWidth < 700 ? 1 : 3;
+    if (cols === lastCols) return;
+    lastCols = cols;
+    trendHost.innerHTML = '';
+    trendHost.appendChild(Chart.smallMultiples({
+      panels: trendPanels(),
+      cols: cols,
+      panelW: cols === 1 ? 250 : 232,
+      panelH: cols === 1 ? 190 : 210,
+      xTicks: D.years,
+      xTickLabel: function (t) {
+        return (t === D.years[0] || t === D.years[D.years.length - 1])
+          ? t : '’' + String(t).slice(2);
+      },
+      baseline: 500,
+      yDomain: [448, 524]
+    }));
+    trendHost.querySelector('svg').setAttribute('aria-label',
+      'PISA mean scores 2006 to 2025 in science, reading and mathematics for England, Scotland, ' +
+      'Northern Ireland and Wales. England ends highest in every subject, Wales lowest.');
+  }
+  drawTrend();
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(drawTrend, 150); });
+
+  /* --- 2025 standings: distance from the OECD average ---------------- *
+     Rows per nation, panels per subject. Every nation gets its own row, so
+     Scotland and Northern Ireland finishing 1.3 points apart in science is
+     a layout non-event rather than a collision. */
+  (function () {
+    Chart.mount('standings', Chart.rowChart({
+      panels: SUBJECTS.map(function (s) {
+        return {
+          title: s[1],
+          rows: NATIONS.map(function (n) {
+            return { name: n, value: Math.round(D.exact2025[s[0]][n] - D.exact2025[s[0]]['OECD average']) };
+          })
+        };
+      }),
+      ref: 0,
+      xDomain: [-16, 44],
+      panelW: 150, gapX: 34, labelW: 92, rowH: 26,
+      markFmt: function (v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v); },
+      fmt: function (t) { return t > 0 ? '+' + t : t; },
+      xLabel: 'score points above (right) or below (left) the OECD average — the vertical rule'
+    }), 'PISA 2025 scores relative to the OECD average. England is furthest above in every ' +
+        'subject. Wales is the only nation below it, in science and maths.');
+  })();
+
+  /* --- 2025 table with change since 2022 ----------------------------- */
+  (function () {
+    var body = document.getElementById('tbl2025');
+    var order = ['England', 'Northern Ireland', 'Scotland', 'Wales', 'OECD average'];
+    order.forEach(function (n) {
+      var tr = document.createElement('tr');
+      var th = document.createElement('td');
+      th.textContent = n; th.style.fontWeight = n === 'OECD average' ? '400' : '600';
+      if (n === 'OECD average') th.style.color = 'var(--ink-soft)';
+      tr.appendChild(th);
+      SUBJECTS.forEach(function (s) {
+        var td = document.createElement('td');
+        td.className = 'num';
+        var v = D.exact2025[s[0]][n];
+        if (n === 'OECD average') {
+          td.textContent = v.toFixed(0);
+        } else {
+          var prev = D.pisa[s[0]][n][5];
+          var d = Math.round(v) - prev;
+          td.textContent = v.toFixed(0) + '  (' + (d > 0 ? '+' : d < 0 ? '−' : '±') + Math.abs(d) + ')';
+        }
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+  })();
+
+  /* --- ESCS quartile profiles ----------------------------------------
+     Three independent charts on one shared y-domain, laid out by CSS. A
+     shared domain is what makes them comparable; a shared <svg> would only
+     make them harder to lay out. */
+  (function () {
+    var host = document.getElementById('escs');
+    host.className = 'panel-grid';
+    SUBJECTS.forEach(function (s) {
+      var cell = document.createElement('div');
+      var h = document.createElement('p');
+      h.className = 'panel-heading';
+      h.textContent = s[1];
+      cell.appendChild(h);
+      cell.appendChild(Chart.profile({
+        categories: ['Q1', 'Q2', 'Q3', 'Q4'],
+        width: 300, height: 250,
+        yDomain: [420, 578],
+        xLabel: s[0] === 'reading' ? 'socio-economic quartile' : null,
+        series: NATIONS.map(function (n) {
+          return {
+            name: n,
+            /* published Q4→Q1; reversed so the x axis runs poorest to richest */
+            values: D.escs[s[0]][n].slice().reverse()
+          };
+        }).concat([{
+          name: 'OECD average', dashed: true,
+          values: D.escs[s[0]]['OECD average'].slice().reverse()
+        }])
+      }));
+      host.appendChild(cell);
+    });
+    host.firstChild.querySelector('svg').setAttribute('aria-label',
+      'PISA 2025 scores by socio-economic quartile. England is above Wales at every quartile in ' +
+      'every subject, and the gap is widest at the most advantaged quartile.');
+  })();
+
+  /* --- socio-economic gap by nation ---------------------------------- */
+  (function () {
+    Chart.mount('gap', Chart.rowChart({
+      panels: SUBJECTS.map(function (s) {
+        return {
+          title: s[1],
+          rows: NATIONS.concat(['OECD average']).map(function (n) {
+            var q = D.escs[s[0]][n];
+            return { name: n, value: Math.round(q[0] - q[3]) };
+          })
+        };
+      }),
+      xDomain: [40, 100],
+      panelW: 150, gapX: 34, labelW: 92, rowH: 26,
+      xLabel: 'score points between the top and bottom socio-economic quartile'
+    }), 'Socio-economic attainment gap by nation. Wales has the narrowest gap in science and ' +
+        'maths, Scotland the narrowest in reading.');
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>England by region — UK Politics Stats</title>
+<meta name="description" content="PISA cannot be split into English regions. England's own GCSE data can, for every pupil in every state school — and it shows the region with the most disadvantaged pupils getting the best results.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="./">UK Politics Stats</a>
+  <nav>
+    <a href="education.html">education</a>
+    <a href="money.html">money &amp; results</a>
+    <a href="regions.html" aria-current="page">england by region</a>
+    <a href="sources.html">sources</a>
+  </nav>
+</header>
+
+<p class="dateline">Key stage 4, 2024/25 · published data, all state-funded schools</p>
+<h1>England by region</h1>
+
+<p class="standfirst">Nine regions, one education policy, very different economies. That makes
+England the cleanest natural experiment in the UK for the question the rest of this site is
+asking — and the answer it gives is not the one the national comparison suggests.</p>
+
+<h2>First, why this page is not about PISA</h2>
+
+<p>The obvious thing to do would be to split England's PISA score by region. It cannot be done
+honestly. PISA's England sample is roughly 4,700 pupils in 165 schools, drawn to produce one
+national estimate. Cut that nine ways and the confidence intervals swallow the differences. The
+Department for Education produced experimental regional estimates once, from the 2015 round, with
+intervals wide enough that most regions were statistically indistinguishable, and has not
+repeated the exercise.</p>
+
+<p>England's own data has the opposite problem, which is to say no problem: <strong>Attainment 8
+covers every pupil in every state-funded school in England</strong> — 625,648 of them in
+2024/25 — so regional figures are a census, not a sample. There is no sampling error to argue
+about. The trade-off is that Attainment 8 is a GCSE measure, not an internationally benchmarked
+one, so it can compare regions with each other but not England with Estonia.</p>
+
+<p class="caveat">Attainment 8 scores a pupil's best eight GCSE results out of 90, with English and
+maths double-weighted. <b>2020 and 2021 are not comparable with the rest of the series</b> — those
+grades were centre-assessed and teacher-assessed during the pandemic, and they inflate every
+region at once. They are drawn on the charts below because deleting inconvenient years is worse
+than labelling them, but no comparison on this page rests on them.</p>
+
+<h2>The result that breaks the poverty story</h2>
+
+<figure>
+  <p class="fig-title">Attainment 8 and disadvantage, English regions, 2024/25</p>
+  <p class="fig-sub">Each row is a region. The left mark is disadvantaged pupils, the right mark
+  everyone else; the bar between them is the gap. Regions are ordered by the share of the cohort
+  that is disadvantaged — most disadvantaged at the top.</p>
+  <div id="dumbbell" class="scroller"></div>
+  <figcaption>
+    <b>Inner London has the most disadvantaged intake in England — 46% of its pupils, against a
+    national 28% — and scores 49.9, higher than any region outside London.</b> Its disadvantaged
+    pupils average 43.8: within a third of a point of the North East's average for <em>all</em>
+    its pupils, and 11.8 points above disadvantaged pupils in the South East. The South East has
+    the least disadvantaged intake of any region and the worst results for the disadvantaged
+    pupils it has.
+    <span class="src">Source: DfE, <i>Key stage 4 performance</i>, academic year 2024/25, “All
+    state-funded pupil characteristics and geography” dataset, via the Explore Education
+    Statistics API. Disadvantage is the DfE definition: free school meals in the past six years,
+    looked-after, or adopted from care.</span>
+  </figcaption>
+</figure>
+
+<div class="finding">
+  <p>If economic circumstances set the ceiling, the region with the most poor pupils could not be
+  the region with the best results for poor pupils. In England it is, by a wide margin, and has
+  been for the whole published series.</p>
+</div>
+
+<h2>The correlation, with and without London</h2>
+
+<p>The relationship between disadvantage and results across the nine regions is worth two charts
+rather than one, because a single number hides what is going on.</p>
+
+<figure>
+  <p class="fig-title">Share of pupils disadvantaged against Attainment 8, 2024/25</p>
+  <p class="fig-sub">The dashed line is fitted to the eight regions excluding London.</p>
+  <div id="disadvScatter"></div>
+  <figcaption>
+    Across all nine regions the correlation is <b>−0.10 — essentially nothing</b>. Drop London and
+    it becomes <b>−0.94</b>. Both numbers are true and both matter: <b>disadvantage predicts
+    results very strongly across England, and London comprehensively breaks the prediction.</b>
+    On the eight-region line London would be expected to score about 44; it scores 50.5.
+    <span class="src">Source: DfE Key stage 4 performance 2024/25. Inner and Outer London are
+    excluded here to avoid double-counting London.</span>
+  </figcaption>
+</figure>
+
+<figure>
+  <p class="fig-title">Regional GDP per head against results for disadvantaged pupils</p>
+  <p class="fig-sub">Real GDP per head, 2023, against the 2024/25 Attainment 8 score of
+  disadvantaged pupils only.</p>
+  <div id="gdpDisadv"></div>
+  <figcaption>
+    Excluding London the correlation is <b>−0.60: the richer the region, the worse its poor
+    pupils do.</b> The South East is the wealthiest region outside London and its disadvantaged
+    pupils score 32.0, the lowest in England — below the North East, the poorest region in the UK
+    per head, at 33.7. Whatever regional prosperity buys, it is not outcomes for poor children.
+    <span class="src">Sources: ONS Regional GDP Table 11 (2023); DfE Key stage 4 performance
+    2024/25.</span>
+  </figcaption>
+</figure>
+
+<h2>Is it a London effect or an Inner London effect?</h2>
+
+<p>Both, and the split is informative. Outer London has the higher overall score (50.8 against
+49.9), because it has a less disadvantaged intake. Inner London has the higher score for
+disadvantaged pupils (43.8 against 40.3) despite 46% of its cohort being disadvantaged against
+Outer London's 28%.</p>
+
+<figure>
+  <p class="fig-title">Attainment 8 over time, by region</p>
+  <p class="fig-sub">All pupils. 2020 and 2021 were teacher-assessed and are shaded out of the
+  comparison.</p>
+  <div id="regTrend" class="scroller"></div>
+  <figcaption>
+    <b>London's lead is not a pandemic artefact, and it has grown.</b> It was 1.7 points ahead of
+    the second-placed South East in 2019 and is 3.4 points ahead in 2025 — the gap roughly doubled
+    across the pandemic and stayed doubled after the return to exams. Every region lost ground
+    between the teacher-assessed years and 2023, and the ordering barely moved.
+    <span class="src">Source: DfE Key stage 4 performance, 2018/19 to 2024/25. Years shown by the
+    summer the exams were sat.</span>
+  </figcaption>
+</figure>
+
+<h2>What this adds to the Wales question</h2>
+
+<p>The <a href="money.html">money page</a> eliminated economic explanations for the England–Wales
+gap by testing across four nations. This page tests the same idea a second way, inside one
+jurisdiction where policy is held constant and economics varies enormously — from £26,678 per head
+in the North East to £64,091 in London.</p>
+
+<p>The two tests agree. Disadvantage matters a great deal to a region's average, which is why the
+eight-region correlation is −0.94. But it does not set a ceiling, which is why London can carry
+the heaviest disadvantage in the country and get the best results out of it. <strong>Somewhere
+between those two facts is the space that school systems occupy</strong> — and it is large enough
+to hold the whole England–Wales gap comfortably.</p>
+
+<p>A caution on the obvious next step. It is tempting to read London's performance as proof that
+some particular reform works, and there is a large literature that does exactly that, mostly
+disagreeing with itself. The most careful work attributes much of the London effect to primary
+schools improving in the 1990s and 2000s, and to the capital's pupil population changing, rather
+than to the secondary-school interventions it is usually credited to. This page makes the weaker
+claim it can support: <strong>outcomes for poor pupils vary by ten Attainment 8 points across
+English regions running the same national policy — twelve once London is split into inner and
+outer — so being a poor pupil cannot be what determines them.</strong></p>
+
+<div class="scroller">
+<table>
+  <caption>English regions, 2024/25 — sorted by share of cohort disadvantaged</caption>
+  <thead>
+    <tr>
+      <th>Region</th><th>GDP/head 2023</th><th>% disadvantaged</th>
+      <th>A8 all</th><th>A8 disadvantaged</th><th>A8 others</th>
+    </tr>
+  </thead>
+  <tbody id="regTable"></tbody>
+</table>
+</div>
+
+<footer>
+  <p><a href="./">← all topics</a> · <a href="sources.html">sources and methods</a></p>
+</footer>
+
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/charts.js"></script>
+<script>
+(function () {
+  var D = window.UKD;
+  /* The nine standard regions. Inner and Outer London appear in the dumbbell
+     as a sub-split but are kept out of every correlation, because including
+     them alongside London would count the capital three times. */
+  var REGIONS = ['North East', 'North West', 'Yorkshire and The Humber', 'East Midlands',
+                 'West Midlands', 'East of England', 'London', 'South East', 'South West'];
+  /* EES and ONS name the same places differently in one case. */
+  var ONS = { 'East of England': 'East' };
+  function gdp(r) { return D.gdpPerHead[ONS[r] || r]['2023']; }
+  function a8(group, r, year) { return D.a8[group][r][year || '2025']; }
+  function shorten(r) {
+    return r === 'Yorkshire and The Humber' ? 'Yorkshire & Humber'
+         : r === 'East of England' ? 'East of England' : r;
+  }
+
+  /* --- 1. dumbbell, ordered by disadvantage ---------------------------- */
+  (function () {
+    var rows = REGIONS.concat(['Inner London', 'Outer London'])
+      .map(function (r) {
+        return {
+          label: shorten(r) + '  ' + D.disadvShare[r].toFixed(0) + '%',
+          a: a8('Disadvantaged', r), b: a8('Other', r),
+          share: D.disadvShare[r],
+          bold: r === 'Inner London' || r === 'South East'
+        };
+      })
+      .sort(function (p, q) { return q.share - p.share; });
+    Chart.mount('dumbbell', Chart.dumbbell({
+      rows: rows, width: 660, rowH: 27, labelW: 175,
+      aLabel: 'disadvantaged', bLabel: 'everyone else',
+      aColour: 'var(--wal)', bColour: 'var(--eng)',
+      xDomain: [30, 57], showDelta: true, deltaLabel: 'gap',
+      xLabel: 'average Attainment 8 score (out of 90) · region label shows % of cohort disadvantaged'
+    }), 'Attainment 8 for disadvantaged and other pupils by English region, ordered by the share ' +
+        'of the cohort that is disadvantaged. Inner London has the highest disadvantage share and ' +
+        'the highest disadvantaged attainment.');
+  })();
+
+  /* --- 2. disadvantage share vs attainment ----------------------------- */
+  Chart.mount('disadvScatter', Chart.scatter({
+    points: REGIONS.map(function (r) {
+      var lon = r === 'London';
+      return {
+        x: D.disadvShare[r], y: a8('Total', r),
+        label: shorten(r), highlight: lon,
+        colour: lon ? 'var(--accent)' : 'var(--ink)',
+      };
+    }),
+    fit: 'excludeHighlight', width: 600, height: 370,
+    xFmt: function (t) { return t + '%'; },
+    xLabel: 'share of the KS4 cohort that is disadvantaged',
+    yLabel: 'Attainment 8, all pupils',
+    fitNote: 'all nine regions  r = −0.10        excluding London  r = −0.94'
+  }), 'Disadvantage share against Attainment 8 for the nine English regions. Eight regions fall ' +
+      'on a steep downward line; London sits far above it.');
+
+  /* --- 3. GDP per head vs disadvantaged attainment --------------------- */
+  Chart.mount('gdpDisadv', Chart.scatter({
+    points: REGIONS.map(function (r) {
+      var lon = r === 'London';
+      return {
+        x: gdp(r), y: a8('Disadvantaged', r),
+        label: shorten(r), highlight: lon,
+        colour: lon ? 'var(--accent)' : 'var(--ink)',
+      };
+    }),
+    fit: 'excludeHighlight', width: 600, height: 370,
+    xFmt: function (t) { return '£' + (t / 1000).toFixed(0) + 'k'; },
+    xLabel: 'real GDP per head, 2023',
+    yLabel: 'Attainment 8, disadvantaged pupils',
+    fitNote: 'excluding London  r = −0.60'
+  }), 'Regional GDP per head against Attainment 8 for disadvantaged pupils. Excluding London the ' +
+      'relationship is negative: richer regions do worse for their poorest pupils.');
+
+  /* --- 4. regional trend ----------------------------------------------- */
+  var trendHost = document.getElementById('regTrend');
+  var lastCols = null;
+  function drawTrend() {
+    var cols = window.innerWidth < 700 ? 1 : 2;
+    if (cols === lastCols) return;
+    lastCols = cols;
+    trendHost.innerHTML = '';
+    var years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+    /* Only the three lines a reader can actually trace get names. The middle
+       five are genuinely indistinguishable from one another — that bunching
+       is the finding — so they are drawn as one grey band and labelled once,
+       rather than given five labels nobody could match to a line. The table
+       below carries every region's exact figure. */
+    var show = REGIONS;   /* all nine, so the band is the whole rest of England */
+    var named = { 'London': 'var(--accent)', 'South East': 'var(--ink)', 'North East': 'var(--sco)' };
+    var svgEl = Chart.indexPanels({
+      cols: 1, panelW: cols === 1 ? 250 : 470, panelH: 250, mR: 132, mL: 34,
+      xTicks: [2019, 2021, 2023, 2025],
+      yDomain: [42, 56],
+      panels: [{
+        title: 'Attainment 8, all pupils',
+        series: show.map(function (r, i) {
+          var isNamed = named[r] !== undefined;
+          return {
+            name: isNamed ? shorten(r) : (r === 'East Midlands' ? 'the other six regions' : ''),
+            colour: isNamed ? named[r] : 'var(--ink-faint)',
+            values: years.map(function (y) { return { x: Number(y), y: a8('Total', r, y) }; })
+          };
+        })
+      }]
+    });
+    /* Shade the two teacher-assessed years so nobody reads a trend through
+       them. Inserted first so it sits behind the lines. */
+    var g = svgEl.querySelector('g');
+    var pw = cols === 1 ? 250 : 470;
+    var x0 = 0.5 / 6 * pw, x1 = 2.5 / 6 * pw;
+    var band = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    band.setAttribute('x', x0); band.setAttribute('y', -6);
+    band.setAttribute('width', x1 - x0); band.setAttribute('height', 256);
+    band.setAttribute('fill', '#14140f'); band.setAttribute('opacity', '0.045');
+    g.insertBefore(band, g.firstChild);
+    var note = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    note.setAttribute('class', 'note'); note.setAttribute('x', (x0 + x1) / 2);
+    note.setAttribute('y', 12); note.setAttribute('text-anchor', 'middle');
+    note.textContent = 'teacher-assessed';
+    g.appendChild(note);
+    svgEl.querySelectorAll('.rule-faint').forEach(function (n) { n.remove(); });
+    svgEl.setAttribute('aria-label',
+      'Attainment 8 by English region 2019 to 2025. London is highest throughout; the ordering ' +
+      'of regions is stable across the teacher-assessed years and the return to exams.');
+    trendHost.appendChild(svgEl);
+  }
+  drawTrend();
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(drawTrend, 150); });
+
+  /* --- 5. the table ---------------------------------------------------- */
+  (function () {
+    var body = document.getElementById('regTable');
+    REGIONS.slice().sort(function (p, q) { return D.disadvShare[q] - D.disadvShare[p]; })
+      .forEach(function (r) {
+        var tr = document.createElement('tr');
+        [shorten(r), '£' + gdp(r).toLocaleString('en-GB'), D.disadvShare[r].toFixed(1) + '%',
+         a8('Total', r).toFixed(1), a8('Disadvantaged', r).toFixed(1), a8('Other', r).toFixed(1)]
+          .forEach(function (v, i) {
+            var td = document.createElement('td');
+            td.textContent = v;
+            if (i === 0) td.style.fontWeight = r === 'London' ? '600' : '400';
+            if (r === 'London') td.style.color = 'var(--accent)';
+            tr.appendChild(td);
+          });
+        body.appendChild(tr);
+      });
+  })();
+})();
+</script>
+</body>
+</html>

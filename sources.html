@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources — UK Politics Stats</title>
+<meta name="description" content="Every dataset behind this site, where it came from, and what is wrong with it.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="./">UK Politics Stats</a>
+  <nav>
+    <a href="education.html">education</a>
+    <a href="money.html">money &amp; results</a>
+    <a href="regions.html">england by region</a>
+    <a href="sources.html" aria-current="page">sources</a>
+  </nav>
+</header>
+
+<h1>Sources and methods</h1>
+
+<p class="standfirst">Every figure on this site was read out of a published data file, not out of
+coverage of one. This page says which file, and what is wrong with it.</p>
+
+<h2>PISA</h2>
+
+<p><strong>2025 scores</strong> come from the appendix data tables published alongside the national
+reports on 8 September 2026 — tables B1.1, B1.3 (science), C1.1, C1.3 (reading) and D1.1, D1.3
+(maths), which carry England, Northern Ireland, Scotland, Wales, the United Kingdom and the OECD
+average as separate rows.</p>
+
+<ul>
+  <li><a href="https://www.gov.uk/government/publications/pisa-2025-national-report-for-england">PISA 2025: national report for England</a> — DfE, with analysis by the Oxford University Centre for Educational Assessment. Scores shown here to the nearest point; the underlying tables carry decimals.</li>
+  <li><a href="https://www.education-ni.gov.uk/publications/pisa-2025-national-report-northern-ireland-volume-1">PISA 2025: national report for Northern Ireland</a> — Department of Education NI.</li>
+  <li><a href="https://www.gov.scot/publications/pisa-2025-national-report-scotland/">PISA 2025: national report for Scotland</a> — Scottish Government.</li>
+</ul>
+
+<p><strong>2012, 2015, 2018 and 2022 scores</strong> for all four nations come from the four-nation
+comparison in the <a href="https://www.gov.wales/sites/default/files/statistics-and-research/2023-12/pisa-2022-national-report-wales-059.pdf">PISA 2022 national report for Wales</a>, figures 9.5 to 9.7.</p>
+
+<p><strong>2006, 2009 and 2012 scores</strong> come from the appendix tables B21, C6 and D6 of the
+<a href="https://assets.publishing.service.gov.uk/media/5a7cdd87e5274a2c9a48496f/programme-for-international-student-assessment-pisa-2012-national-report-for-england.pdf">PISA 2012 national report for England</a>, which list the UK nations individually. The
+2012 column is present in two independent sources and agrees exactly in all twelve
+nation-and-subject cells, which is the cross-check this series rests on.</p>
+
+<h3>What is wrong with PISA</h3>
+
+<ul>
+  <li><strong>The UK exclusion rate is above the OECD limit and rising.</strong> 7.6% of sampled schools were excluded in 2025 against a 5% target, up from 4.9% in 2022 and 5.4% in 2018. The OECD accepted the 2025 results for trend comparison.</li>
+  <li><strong>2022 failed one or more sampling standards</strong> across much of the UK, and it is the comparison point for England's 13-point science rise. The official reports flag it.</li>
+  <li><strong>England's sample has been found to skew high.</strong> <a href="https://bera-journals.onlinelibrary.wiley.com/doi/10.1002/rev3.3270">Jerrim (2021)</a> estimates England's PISA 2018 maths mean was about 11 points above a properly representative sample.</li>
+  <li><strong>The OECD average is not one consistent series.</strong> Which countries it covers changes between cycles, which is why the trend charts on this site plot the four nations and a fixed 500 reference rather than an OECD line. Where an OECD figure is quoted it is the one published for that cycle.</li>
+  <li><strong>Scores are estimates with standard errors of roughly 2 to 4 points.</strong> Differences of a few points are not differences. The comparisons this site draws conclusions from are tens of points wide.</li>
+</ul>
+
+<h2>Attainment 8 and disadvantage</h2>
+
+<p>Department for Education, <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2024-25">Key stage 4 performance, academic year 2024/25</a>, drawn through the Explore Education
+Statistics API from the “All state-funded pupil characteristics and geography” dataset. Regional
+figures are a census of every pupil in every state-funded school, so there is no sampling error.
+Cohort and disadvantage counts are from the same dataset's pupil totals.</p>
+
+<ul>
+  <li><strong>2020 and 2021 grades were centre- and teacher-assessed</strong> and are inflated relative to every exam year. They are drawn on the trend chart and shaded; no comparison rests on them.</li>
+  <li><strong>“Disadvantaged” is the DfE definition</strong>: eligible for free school meals at any point in the previous six years, looked-after, or adopted from care. It is not the same thing as being in poverty, and it is a wider group than current free school meal eligibility.</li>
+  <li><strong>Inner and Outer London are excluded from every correlation</strong> on this site, because including them alongside London would weight the capital three times.</li>
+  <li><strong>Attainment 8 is a domestic measure.</strong> It compares English regions with each other and cannot be compared to a PISA score or to another nation.</li>
+</ul>
+
+<h2>Economy</h2>
+
+<p>Office for National Statistics, <a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/regionalgrossdomesticproductallnutslevelregions">Regional gross domestic product: all ITL regions</a>, edition 1998 to 2023, released 17 April
+2025. This site uses <strong>Table 11 — chained volume measures per head in 2022 money</strong>, so
+the series is real rather than nominal and can be compared across years.</p>
+
+<ul>
+  <li><strong>GDP per head is measured where output is produced, not where people live.</strong> Commuting inflates London's figure and depresses its neighbours'. It is a measure of regional economic activity, not of household income, and the pages here say so where it matters.</li>
+  <li><strong>2023 is the latest published year</strong>, so the 2025 PISA cycle is paired with 2023 GDP.</li>
+</ul>
+
+<h2>Poverty</h2>
+
+<p>Welsh Government, <a href="https://www.gov.wales/relative-income-poverty-april-2023-march-2025-official-statistics-development-html">Relative income poverty: April 2023 to March 2025</a>, which publishes all four UK nations on
+one consistent basis from the DWP's Households Below Average Income series. Children in relative
+low income after housing costs, three-year average to the financial year ending 2025: England 29%,
+Wales 32%, Northern Ireland 21%, Scotland 19%.</p>
+
+<ul>
+  <li><strong>Sub-UK HBAI estimates are Official Statistics in Development.</strong> They come from a household survey, they are volatile enough that only three-year averages are published, and different publications produce slightly different figures for the same nation. A single consistent source is used here rather than the best-looking number from each.</li>
+  <li><strong>After housing costs</strong> is the measure used throughout, because before-housing-costs figures understate poverty badly wherever rents are high.</li>
+  <li><strong>Household income inequality is not reliably published below UK level</strong>, so the inequality question is tested with PISA's own socio-economic gradient instead.</li>
+</ul>
+
+<h2>How the statistics were calculated</h2>
+
+<p>Correlations are Pearson's r, computed on the figures published in the sources above. Sample
+sizes are given every time one is quoted, because with four nations or nine regions the sample
+size <em>is</em> the caveat. Fitted lines on scatter charts are ordinary least squares and are
+drawn dashed and faint, because they are an interpretation rather than an observation.</p>
+
+<p>Where a correlation changes substantially when one point is removed, both numbers are given.
+That happens twice on this site and it is the most interesting thing in the data both times.</p>
+
+<h2>What this site does not claim</h2>
+
+<p>It does not claim that any particular education policy caused any particular result. Seven
+three-yearly observations of four jurisdictions cannot separate a curriculum change from an
+accountability change from a change in who is being taught, and no amount of chart-making fixes
+that. The argument runs the other way — it eliminates economic explanations rather than
+identifying a policy one, and stops there.</p>
+
+<footer>
+  <p><a href="./">← all topics</a> · Data current as of the PISA 2025 release, 8 September 2026.
+  <a href="https://github.com/sol-apps/uk-politics-stats">Source code</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>

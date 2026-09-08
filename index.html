@@ -1,48 +1,84 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UK Politics Stats</title>
-  <meta name="description" content="Charts on UK public policy. First: PISA 2025 across the four nations, and whether money explains the gaps.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
-  <style>
-    :root{ --bg:#FFB84D; --ink:#2b2b29; --muted:#74726a; --panel:#fffaf0; --line:#2b2b29; --accent:#D56062; }
-    [data-theme="dark"]{ --bg:#3f403e; --ink:#FFB84D; --muted:#b9b08f; --panel:#4b4c49; --line:#1b1b1a; --accent:#ff9aa0; }
-    *{ margin:0; box-sizing:border-box; }
-    body{ min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-      font-family:"Orbitron",sans-serif; color:var(--ink); background:var(--bg); padding:24px; text-align:center;
-      transition:background-color .25s, color .25s; }
-    .toggle{ position:fixed; top:14px; right:14px; font-family:"Press Start 2P",monospace; font-size:9px;
-      padding:9px 11px; border:3px solid var(--line); border-radius:6px; background:var(--panel); color:var(--ink);
-      cursor:pointer; box-shadow:3px 3px 0 var(--line); }
-    .toggle:active{ transform:translate(2px,2px); box-shadow:none; }
-    .emoji{ font-size:clamp(3.5rem,16vw,6rem); filter:drop-shadow(3px 4px 0 rgba(0,0,0,.18)); }
-    h1{ font-family:"Press Start 2P",monospace; font-size:clamp(1rem,5vw,2rem); line-height:1.5; margin:18px 0 10px;
-      text-shadow:3px 3px 0 rgba(0,0,0,.18); }
-    p.desc{ max-width:46ch; font-weight:500; color:var(--muted); line-height:1.6; }
-    .badge{ margin-top:26px; font-family:"Press Start 2P",monospace; font-size:9px; color:var(--accent);
-      border:3px solid var(--line); border-radius:6px; padding:12px 16px; background:var(--panel);
-      box-shadow:4px 4px 0 var(--line); }
-    a.home{ margin-top:22px; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:.1em; }
-    a.home:hover{ text-decoration:underline; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Politics Stats</title>
+<meta name="description" content="Charts on UK public policy, built from primary statistical sources. First subject: education across the four nations.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <button class="toggle" id="t" type="button">DARK</button>
-  <div class="emoji">📊</div>
-  <h1>UK Politics Stats</h1>
-  <p class="desc">Charts on UK public policy. First: PISA 2025 across the four nations, and whether money explains the gaps.</p>
-  <div class="badge">&#9656; LIVE AT uk-politics-stats.solhann.net &mdash; START BUILDING</div>
-  <a class="home" href="https://create.solhann.net">&larr; back to the gallery</a>
-  <script>
-    const r=document.documentElement,b=document.getElementById('t');
-    const set=t=>{r.setAttribute('data-theme',t);b.textContent=t==='dark'?'LIGHT':'DARK';localStorage.setItem('solhann_theme',t)};
-    set(localStorage.getItem('solhann_theme')||'light');
-    b.onclick=()=>set(r.getAttribute('data-theme')==='dark'?'light':'dark');
-  </script>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="./">UK Politics Stats</a>
+  <nav>
+    <a href="education.html">education</a>
+    <a href="money.html">money &amp; results</a>
+    <a href="regions.html">england by region</a>
+    <a href="sources.html">sources</a>
+  </nav>
+</header>
+
+<h1>Charts on UK public policy</h1>
+
+<p class="standfirst">Every number here comes from a primary statistical source — the OECD, the
+Office for National Statistics, the Department for Education, the devolved governments — and every
+chart says which one. Where the data cannot answer a question, the page says so instead of
+guessing.</p>
+
+<ul class="topics">
+  <li>
+    <a href="education.html">Education: PISA across the four nations</a>
+    <p>Every PISA result for England, Scotland, Wales and Northern Ireland from 2006 to the
+    2025 round published on 8 September 2026. England's science score jumped 13 points; Wales fell
+    further behind in all three subjects.</p>
+  </li>
+  <li>
+    <a href="money.html">Money &amp; results: does economics explain the gaps?</a>
+    <p>The question this site was built to answer. Tested against GDP per head, child poverty and
+    the socio-economic attainment gradient. Short answer: no — and the reason why is more
+    interesting than the correlation would have been.</p>
+  </li>
+  <li>
+    <a href="regions.html">England by region</a>
+    <p>PISA cannot be split into English regions — its sample is not built for it. England's own
+    GCSE data can, for every pupil in every state school. It shows something PISA cannot: the
+    region with the most disadvantaged pupils gets the best results.</p>
+  </li>
+  <li>
+    <span class="soon">Health, housing, transport, public finances</span>
+    <p>Not built yet. The structure is deliberately general — this is a UK statistics site that
+    happens to start with schools.</p>
+  </li>
+</ul>
+
+<h2>How this site handles data</h2>
+
+<p>Three rules, applied throughout.</p>
+
+<p><strong>Primary sources only.</strong> Figures are read out of the published data tables, not
+out of news coverage of them. Where two sources disagree, the page says which one it used and
+why.</p>
+
+<p><strong>Caveats sit with the chart, not in a footnote nobody reads.</strong> PISA is a sample
+survey with real sampling problems in the UK; GCSE grades in 2020 and 2021 were teacher-assessed
+and are not comparable with exam years. Both facts are on the charts they affect.</p>
+
+<p><strong>Correlations are reported honestly, including when they are weak or when they vanish
+under a second look.</strong> With four nations you can find a correlation of 0.93 with almost
+anything. The <a href="money.html">money page</a> shows one, then shows why it means nothing.</p>
+
+<footer>
+  <p>Built on <a href="https://create.solhann.net">solhann.net</a>.
+  Data current as of the PISA 2025 release, 8&nbsp;September&nbsp;2026.
+  <a href="sources.html">Full source list</a>.</p>
+</footer>
+
+</div>
 </body>
 </html>
